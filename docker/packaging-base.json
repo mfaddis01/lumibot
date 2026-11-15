@@ -1,0 +1,26 @@
+{
+  "registry": "registry-1.docker.io",
+  "repository": "library/python",
+  "discovery_tag": "3.12-slim-bookworm",
+  "index_digest": "sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df",
+  "platform_manifest_digest": "sha256:0f086103b026048cc50cb5da25ec435c023c5241a83fc44daea593377abc61c4",
+  "config_digest": "sha256:313cf8f190a1abab00472c1f0c950c10486c22114bcd8aef2a8198fb587a6d18",
+  "python_version_from_config": "3.12.16",
+  "platform": "linux/amd64",
+  "libc": "glibc",
+  "minimum_glibc": "2.36",
+  "libc_claim": "Debian bookworm upstream recipe; actual runtime libc assertion pending daemon build",
+  "marker_replay": {
+    "original_python": "3.12.3",
+    "base_python": "3.12.16",
+    "candidate_lock_sha256": "ac137679962c2a4e724ba8ce7c18bd026407a60ad9824e669e1a9984667b7bea",
+    "report_sha256": "295061cf3e2e5ac764b69162f971bebdf14a32529d56e500d5b434effdcda095",
+    "closure_sha256": "cdfb8ff27f8fe249f66381faadb039f93badae9fdb67cc70a5ea84d1935ee5e2",
+    "mandatory_roots": 54,
+    "selected_packages": 264,
+    "active_edges": 557,
+    "identical": true,
+    "errors": []
+  },
+  "metadata_only": true
+}
