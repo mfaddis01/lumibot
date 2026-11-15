@@ -10,7 +10,8 @@ class PersonalWorkflowTests(unittest.TestCase):
         directory = Path(__file__).resolve().parents[1] / ".github/workflows"
         names = {path.name for path in directory.iterdir()
                  if path.is_file() and path.suffix in {".yml", ".yaml"}}
-        self.assertEqual(names, {"personal-checks.yml"})
+        self.assertEqual(names, {"personal-checks.yml", "personal-release.yml",
+                                 "personal-release-checks.yml"})
 
     def test_each_trigger_covers_new_unreviewed_workflow_only_changes(self):
         path = Path(__file__).resolve().parents[1] / ".github/workflows/personal-checks.yml"

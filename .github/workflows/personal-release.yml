@@ -1,0 +1,29 @@
+name: Personal application release
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: personal-app-release-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.repository == 'mfaddis01/lumibot' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ github.token }}
+          repo-url: mfaddis01/lumibot
+          target-branch: main
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
