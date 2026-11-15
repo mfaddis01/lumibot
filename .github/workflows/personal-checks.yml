@@ -1,0 +1,77 @@
+name: Personal offline checks
+
+# Owner must retire inherited automation before enabling repository Actions.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "personal_trading/**"
+      - "personal_tests/**"
+      - "personal_deploy/**"
+      - "personal_ci_tests/**"
+      - "personal_docs/**"
+      - "lumibot/**"
+      - "setup.py"
+      - "setup.cfg"
+      - "pyproject.toml"
+      - "MANIFEST.in"
+      - "requirements*.txt"
+      - "uv.lock"
+      - "LICENSE"
+      - "README.md"
+      - ".github/workflows/**"
+  push:
+    branches: [main, feat/paper-foundation]
+    paths:
+      - "personal_trading/**"
+      - "personal_tests/**"
+      - "personal_deploy/**"
+      - "personal_ci_tests/**"
+      - "personal_docs/**"
+      - "lumibot/**"
+      - "setup.py"
+      - "setup.cfg"
+      - "pyproject.toml"
+      - "MANIFEST.in"
+      - "requirements*.txt"
+      - "uv.lock"
+      - "LICENSE"
+      - "README.md"
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: personal-offline-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      LUMIBOT_DISABLE_DOTENV: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONNOUSERSITE: "1"
+    steps:
+      # Official action refs resolved from their primary repositories; see build.md.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+          check-latest: false
+      - name: Personal pure-unit checks
+        run: python -m unittest discover -s personal_tests
+      - name: Offline source-bundle and workflow regression checks
+        run: python -m unittest discover -s personal_ci_tests
+      - name: Build committed source snapshot only
+        shell: bash
+        run: >-
+          python personal_deploy/source_bundle.py build
+          --source .
+          --commit "$(git rev-parse HEAD)"
+          --output "$RUNNER_TEMP/personal-source.tar.gz"
