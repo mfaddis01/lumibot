@@ -1,0 +1,49 @@
+name: Personal release metadata checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "release-please-config.json"
+      - ".release-please-manifest.json"
+      - "personal_release/**"
+      - "personal_ci_tests/**"
+      - "personal_docs/versioning.md"
+      - ".github/workflows/**"
+  push:
+    branches: [main]
+    paths:
+      - "release-please-config.json"
+      - ".release-please-manifest.json"
+      - "personal_release/**"
+      - "personal_ci_tests/**"
+      - "personal_docs/versioning.md"
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: personal-release-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONNOUSERSITE: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+          check-latest: false
+      - name: Offline version and workflow policy checks
+        run: python -m unittest discover -s personal_ci_tests -p 'test_*policy.py'
+      - name: Offline versioning checks
+        run: python -m unittest discover -s personal_ci_tests -p test_versioning.py

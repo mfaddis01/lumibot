@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/712fcf01effd08d7b0e7b1fd3861f2cb388bc8d1/schemas/config.json",
+  "bootstrap-sha": "a250d6b74fac9462da36636953295378d7156899",
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "component": "personal-app",
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "tag-separator": "-",
+      "version-file": "personal_release/VERSION",
+      "changelog-path": "personal_release/CHANGELOG.md",
+      "initial-version": "0.1.0",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": false,
+      "draft": false,
+      "prerelease": false
+    }
+  }
+}
