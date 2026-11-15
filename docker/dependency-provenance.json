@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "kind": "source-bound-dependency-candidate",
+  "source_base": "88528df652f11d09a918be778e17f4516fe2c620",
+  "setup_sha256": "08c6940e02d9aa8db063df0eb8ac3489538aecd5b55d7497b40043c9c8ebac23",
+  "mandatory_roots": [
+    "massive>=2.9.1,<3",
+    "alpaca-py>=0.42.0",
+    "alpha_vantage",
+    "ibapi==9.81.1.post1",
+    "yfinance>=0.2.61",
+    "matplotlib>=3.3.3",
+    "quandl",
+    "numpy>=1.20.0,<2.5.0",
+    "pandas>=2.2.0",
+    "polars>=1.32.3",
+    "pandas_market_calendars>=5.4.0",
+    "pandas-ta-classic>=0.6.52",
+    "plotly>=5.18.0",
+    "sqlalchemy",
+    "bcrypt",
+    "pytest",
+    "yappi>=1.6.0",
+    "scipy>=1.14.0",
+    "quantstats-lumi>=1.1.6,<1.2.0",
+    "python-dotenv",
+    "ccxt>=4.5.50",
+    "termcolor",
+    "jsonpickle",
+    "apscheduler>=3.10.4",
+    "appdirs",
+    "pyarrow>=15.0.0",
+    "tqdm",
+    "lumiwealth-tradier>=0.1.18",
+    "py-clob-client-v2>=1.0.1",
+    "pytz",
+    "psycopg2-binary",
+    "exchange_calendars>=4.6.0",
+    "duckdb",
+    "tabulate",
+    "databento>=0.42.0",
+    "holidays",
+    "psutil",
+    "openai",
+    "setuptools>=84.1.0",
+    "google-adk[extensions]>=2.9.1,<3.0.0",
+    "google-genai>=2.24.0,<3.0.0",
+    "litellm>=1.105.0,<1.106.0",
+    "anyio>=4.10.0",
+    "mcp>=1.26.0,<2",
+    "schwab-py>=1.5.0",
+    "Flask>=2.3",
+    "free-proxy",
+    "requests-oauthlib",
+    "signalrcore>=1.0.2,<2",
+    "boto3>=1.40.64",
+    "httpx",
+    "filelock>=3.0",
+    "PyJWT[crypto]>=2.15.1",
+    "pypdf>=5.0.0"
+  ],
+  "overlay_constraints": [
+    "alpaca-py==0.42.0",
+    "websockets==15.0.1"
+  ],
+  "target": {
+    "os": "Linux",
+    "architecture": "amd64",
+    "marker_platform_machine": "x86_64",
+    "python_abi": "cp312",
+    "marker_python_full_version": "3.12.3",
+    "libc": "glibc",
+    "minimum_glibc": "2.36",
+    "kernel_marker_fields": "unspecified; no selected references"
+  },
+  "tooling": {
+    "python": "3.12.3",
+    "pip": "24.0",
+    "setuptools": "84.1.0",
+    "wheel": "0.45.1"
+  },
+  "result": {
+    "mandatory_roots": 54,
+    "selected_packages": 264,
+    "reachable_packages": 264,
+    "active_dependency_edges": 557,
+    "enabled_extras": {
+      "google-adk": [
+        "extensions"
+      ],
+      "google-api-core": [
+        "grpc"
+      ],
+      "google-auth": [
+        "pyopenssl",
+        "requests"
+      ],
+      "httpx": [
+        "http2"
+      ],
+      "pyjwt": [
+        "crypto"
+      ],
+      "sqlalchemy": [
+        "asyncio"
+      ]
+    },
+    "errors": [],
+    "published_wheels": 263,
+    "self_built_universal_wheels": 1,
+    "selected_archive_total_bytes": 433615579,
+    "lock_sha256": "ac137679962c2a4e724ba8ce7c18bd026407a60ad9824e669e1a9984667b7bea",
+    "native_install_performed": false,
+    "pip_check_performed": false,
+    "docker_qualified": false
+  },
+  "ibapi": {
+    "published_sdist_sha256": "49f6678bf4cced996920f32ad4b48e6897749ac30ba14a661082285f4ec09cd6",
+    "self_built_universal_wheel_sha256": "7cf006ac0a3de22a258d6d38ce3e3da51c718a70e05300e5d354d9d0481774a8",
+    "self_built_wheel_filename": "ibapi-9.81.1.post1-py3-none-any.whl",
+    "published_wheel": false,
+    "source_date_epoch": "1700000000"
+  },
+  "evidence_workspace_relative": "review/docker-implementation/dependency-evidence",
+  "claim_limits": [
+    "Cross-resolution only, not native full-graph installation or pip-check.",
+    "No Docker/image/native-extension qualification.",
+    "No broker/account/API traffic, no project setup execution.",
+    "Prior ARM work reused only as source/metadata input; no ARM binaries reused."
+  ]
+}

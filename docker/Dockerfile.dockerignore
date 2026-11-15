@@ -1,0 +1,20 @@
+# Exported context only; defense in depth, NOT live-checkout sanitization.
+# packaging_context.py selects exact reviewed Git paths and hashes first.
+**
+!source/
+!source/**
+!docker/
+!docker/**
+!packaging-inventory.json
+**/.env
+**/.env.*
+**/.oci
+**/.oci/**
+**/.ssh
+**/.ssh/**
+**/.hermes
+**/.hermes/**
+**/.git
+**/.git/**
+**/__pycache__
+**/*.pyc
