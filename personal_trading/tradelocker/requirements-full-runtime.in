@@ -1,0 +1,4 @@
+# Isolated qualification inputs; NOT a promoted runtime or an official release pair.
+# Supply --no-index --find-links; see development/tradelocker/INTEGRATION.md.
+lumibot==4.6.64+source8dbcf8f.1
+tradelocker==0.56.2+lumibot.runtime.1
