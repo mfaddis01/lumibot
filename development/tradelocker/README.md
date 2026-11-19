@@ -1,32 +1,23 @@
-# TradeLocker demo integration — development tracking
+# TradeLocker demo integration — development status
 
-This feature branch tracks development, not an operational release. It does not authorize or enable trading. The stable application branch and deployment remain separate; the owner merges reviewed PRs.
+This feature is not an operational release. The owner merges reviewed changes; merge, deployment and trading activation remain separate.
 
-## Scope
+## Implemented and exercised offline
 
-- TradeLocker Public API through its official Python client and a LumiBot adapter.
-- Demo-only, exact configured XAUUSD.R instrument, explicit account binding.
-- One experimental strategy and a bounded monitored demo trial; no profitability claim.
+- Official-SDK-backed, exact-account read adapter for demo, GATESFX and XAUUSD.R.
+- Explicit local SDK packaging adjustments with unchanged upstream code, hash-gated inputs and installed-runtime dependency checks.
+- Separate 1-minute and 5-minute signal-only replay experiments. Repeated eligible same-day opportunities; no forced orders, stock calendar or fixed daytime window.
+- Synthetic supervised execution foundation, private journal/single-writer controls and bounded reconciliation.
+- Separate owner-terminal empirical routing probe. It can send one approved real demo open and one exact linked close after separate digest-bound acknowledgements; it is not a strategy runner.
 
-## Six deliverables
+The combined offline suite passed 141 tests with zero failures/skips. Three code-review scopes and two security-review scopes cover the candidate and repairs. This is not CI, authenticated execution, workspace-wide verification or profitability evidence.
 
-1. Trading adapter and full runtime qualification — in development.
-2. Contract sizing, economic valuation, session and permission semantics — research in progress.
-3. Supervised demo execution test — blocked on implementation, qualified inputs and exact test approval.
-4. Gold-strategy research, explicit rules and implementation — research in progress; no strategy selected.
-5. Fail-closed safeguards, private journal and restart reconciliation — in development.
-6. Signal-only evaluation and bounded demo trial — planning; execution blocked on earlier deliverables and agreed limits.
+## Remaining boundaries
 
-Independent research, execution/safety, runtime and operations preparation run in parallel. Strategy implementation follows a usable research specification; real orders follow working safeguards and explicit test/trial scope. A successful read-only check does not establish executing or deployed operation.
+No real probe order has been submitted. Credentials/session are intentionally not retained. The probe requires a foreground owner terminal, account selection, explicit API-native quantity and two acknowledgements. It discloses an unprotected interval and no dollar-loss cap; failures may require manual reconciliation. It must not become an autonomous executor.
 
-## Documentation and evidence rules
+Actual economics, costs, calendar/permission ambiguities, protection and freshness remain unqualified. Use verified overnight gold sessions, not stock hours; uninterrupted 24x7 is not assumed. Replay is not connected to a production strategy lifecycle. No backtest, forward results, deployment or funded/live use is established.
 
-- development/: plans, research, proposals, task state and engineering handoffs.
-- docs/: verified working operating behavior, with deployment status stated accurately.
-- Local-only records hold machine-specific worker handles, private account observations and test receipts. They are not public repository fixtures.
-- No credentials, personal account data, owner email, installed environments, cache or local host paths belong in this PR.
-- Source changes receive scoped tests/review before promotion. Merge, release, deployment and strategy activation are distinct events.
+## Organization
 
-## Current PR contents
-
-Development tracking only. No adapter code or executable trading capability has been added to this branch yet. Subsequent reviewed changes will be added as their actual evidence becomes available. GitHub Actions is disabled; this is not a green-CI claim. Repository Issues is disabled, so this draft PR checklist supplies remote tracking without changing settings.
+Only explicitly selected source/tests are included. Private receipts, account observations, environments and wheels are excluded. Development plans are separate from verified operating documentation. Actions and Issues remain disabled; this draft PR is the remote checklist. No settings or infrastructure changes are included.

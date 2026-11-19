@@ -1,0 +1,16 @@
+{
+  "supplied_framework_commit": "8dbcf8fab2b89f1b596fa64ec07cd47c41e284f4",
+  "verification": "Owner-supplied commit label; no Git operations performed. Hashes cover selected source files, not the complete framework tree.",
+  "files": {
+    "lumibot/__init__.py": "58d2f70adc0bc8b4348f4887c81416d393fe3253c60610a72ae1d703da60d1bd",
+    "lumibot/credentials.py": "25f53a3a101f25e8be21211f24cba1821baf415f14edff04d64a7130d35495ab",
+    "lumibot/_lazy_imports.py": "d7815e74d7532dcc1a975a01def077f736616ac0e5337cf338096fbd586c0760",
+    "lumibot/tools/lumibot_logger.py": "1359efe4467c5c26569b9b93a5a24057f95d59365335e28abbc0eda32e8953af",
+    "lumibot/brokers/broker.py": "3bb2af72ff464a57dd3cfe1bfa300ec3d94370d3909bcdc531f82a00e1b9fe83",
+    "lumibot/data_sources/data_source.py": "252ed523322eb0c81949813f2c8eadc73aadcc9181aaa639632cf9ecccdaf94d",
+    "lumibot/entities/asset.py": "e613a11d389896734ad5e95cf12591c097c088a4492d04d18ec08124b5c3f035",
+    "lumibot/entities/position.py": "926b508e9f9aa23cd28571b4001ea194d9e7bc81bfab99c60ebca7a2d7cdf4c9",
+    "lumibot/entities/quote.py": "11e588005096f80153cc7e05d78126e06e19058a9e494c366f04c93e7843265a",
+    "lumibot/entities/bars.py": "2ab41b26b0ed2d113264053d3f92791a4aeace12eb5b574b8076eef9bf2264e7"
+  }
+}
